@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -15,13 +14,14 @@ public class SpawnManager : MonoBehaviour
     private float startDelay = 2.0f;
     //Spawn Interval
     private float spawnInterval = 1.5f;
+   
 
     //Start is called before the first frame
     void Start()
     {
-        InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
+        InvokeRepeating(spawnmethodName, startDelay, spawnInterval);
     }
-
+    private const string spawnmethodName = "SpawnRandomAnimal";
     //Method to spawn animals
     private void SpawnRandomAnimal()
     {
