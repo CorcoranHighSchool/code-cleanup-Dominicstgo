@@ -10,13 +10,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float xRange = 10.0f;
     //Projectile prefab
     [SerializeField] private GameObject projectilePrefab;
+    private const horizontal string = "Horizontal";
 
     
     // Update is called once per frame
     void Update()
     {
         //Get the horizontal input
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis(horizontal);
         //Move the player
         transform.Translate(Vector3.right * (horizontalInput * Time.deltaTime * speed));
 

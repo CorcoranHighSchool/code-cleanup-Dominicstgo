@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     //animal prefabs
-    public GameObject[] animalPrefabs;
+    [SerializeField] private GameObject[] animalPrefabs;
     //x range
     private float spawnRangeX = 20.0f;
     //z position
