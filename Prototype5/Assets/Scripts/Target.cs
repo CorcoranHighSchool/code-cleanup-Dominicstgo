@@ -12,7 +12,7 @@ public class Target : MonoBehaviour
     private GameManager gameManager;
     [SerializeField] private int pointValue = 5;
     [SerializeField] private ParticleSystem explosionParticle;
-    private const string gameManager = "GameManager";
+    private const string gameManagerString = "GameManager";
     private const string bad = "Bad";
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class Target : MonoBehaviour
         //Spawn Position
         Vector3 spawnPosition = RandomSpawnPos();
         transform.position = spawnPosition;
-        gameManager = GameObject.Find("gameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find(gameManagerString).GetComponent<GameManager>();
     }
     private float RandomTorque()
     {
@@ -59,7 +59,7 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        if (!gameObject.CompareTag("bad"))
+        if (!gameObject.CompareTag(bad))
         {
             GameObject.FindObjectOfType<GameManager>().GameOver();
         }

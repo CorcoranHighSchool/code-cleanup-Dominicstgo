@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> targets;
     private float spawnRate = 1.0f;
     public bool isGameActive = {get; private set; };
-    private const string score = "Score";
+    private const string scoreString = "Score: ";
 
     public void StartGame(int difficulty)
     {
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "score: " + score;
+        scoreText.text = scoreString + score;
     }
     public void GameOver()
     {
