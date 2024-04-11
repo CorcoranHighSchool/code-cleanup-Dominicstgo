@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -7,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int score = 0;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI gameOverText;
-    public GameObject titleScreen;
-    public Button restartButton;
-    public List<GameObject> targets;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private GameObject titleScreen;
+    [SerializeField] private Button restartButton;
+    [SerializeField] private List<GameObject> targets;
     private float spawnRate = 1.0f;
-    public bool isGameActive = false;
+    public bool isGameActive = {get; private set; };
+    private const string score = "Score";
 
     public void StartGame(int difficulty)
     {
@@ -25,11 +25,6 @@ public class GameManager : MonoBehaviour
         UpdateScore(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private IEnumerator SpawnTarget()
     {
         while (isGameActive)
@@ -42,7 +37,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "score: " + score;
     }
     public void GameOver()
     {
